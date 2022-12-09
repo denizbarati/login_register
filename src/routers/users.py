@@ -15,3 +15,13 @@ def get_user():
 @router.post('/creat')
 async def creat_user(user: UserBase, db=Depends(get_db)):
     return await users.create_user(db, user)
+
+
+@router.get('/allUsers')
+async def get_all_users(db=Depends(get_db)):
+    return await users.get_all_users(db)
+
+
+@router.get('/getUser/{id}')
+async def get_user_by_id(id: int, db=Depends(get_db)):
+    return await users.get_user_by_id(id, db)

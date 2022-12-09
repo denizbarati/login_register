@@ -8,3 +8,7 @@ class UserModel(Base):
     userName = Column(String)
     password = Column(String)
     email = Column(String)
+
+    @property
+    def id(self):
+        return self._id
